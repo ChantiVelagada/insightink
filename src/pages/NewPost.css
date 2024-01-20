@@ -1,11 +1,12 @@
 .post-form {
     max-width: 800px;
     margin: auto;
-    padding:20px 30px;
+    padding:0px 20px;
 }
 
 .post-form h1 {
-    font-size: 1.5rem;
+    font-size: 24px;
+    padding-bottom: 20px;
 }
 
 .post-form label {
@@ -15,12 +16,10 @@
 }
 
 .post-form input,textarea {
-    margin:10px 0 10px;
+    margin:10px 0;
     width: 100%;
-    font-size: 1rem;
-    border-radius: 5px;
-    padding: 5px;
-    font-family:Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 8px;
 }
 
 button {
@@ -28,9 +27,8 @@ button {
     font-weight: bold;
     color: white;
     background-color: #171717;
-    padding: 1em 2em;
+    padding: 10px 20px;
     border: none;
-    border-radius: .6rem;
     position: relative;
     cursor: pointer;
     overflow: hidden;

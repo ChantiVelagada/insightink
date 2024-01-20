@@ -1,13 +1,39 @@
-.post-container {
-    max-width: 800px;
-    margin:0 auto ;
-    border-bottom: 2px solid gray;
-    box-shadow: 0 2px  rgba(0, 0, 0, 0.1);
-    padding:0 15px 10px;
+.search-input {
+    margin: auto;
+    display: block;
+    width: 760px;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-bottom: 30px;
 }
 
-.post-container h1 {
-    font-size: 24px;
+@media screen and (width < 900px) {
+
+    .search-input {
+        width: 95%;
+    }
+
+}
+
+.post-container {
+    max-width: 800px;
+    margin:auto;
+    padding:0 20px;
+    margin-bottom: 50px;
+}
+
+.post-container h2 {
+    font-size: 28px;
+    color: #1f2937;
+}
+
+.post-container h2:hover {
+    text-decoration: underline;
+}
+
+.post-container .read-more {
+    font-size: 16px;
+    color: rgb(79, 127, 193);
 }
 
 .post-info {

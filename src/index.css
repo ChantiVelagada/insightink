@@ -1,37 +1,37 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Tahoma, sans-serif;
+    font-family:Poppins, sans-serif;
+    text-decoration: none;
 }
 
 .navbar {
-    padding:15px 0;
+    padding:15px 20px;
     max-width:800px;
     margin: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: 0 2px  rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 24px;
+    color: darkcyan;
+}
+
+.logo:hover {
+    text-decoration: underline;
 }
 
 .nav-list {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: space-around;
-}
-
-.nav-list li {
-    margin-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
 .nav-list a {
@@ -59,9 +59,13 @@ button:active {
     max-width: 800px;
     margin: auto;
     padding: 50px;
-
 }
 
 .profile-page img{
-    border-radius:5px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-page h3, .profile-page p {
+    margin-bottom: 10px;
 }

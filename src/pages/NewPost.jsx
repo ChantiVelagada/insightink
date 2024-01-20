@@ -26,13 +26,12 @@ function NewPost({isLoggedIn}) {
 
   return (
     <div className='post-form'>
-      <h1>Create a New Post</h1>
 
       <label>Title </label>
       <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title...' />
 
       <label>Content </label>
-      <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder='Content goes here...' rows={20}/>
+      <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder='Content goes here... supports "Markdown"' rows={20}/>
 
       <button onClick={createPost}>
           <span class="circle1"></span>
@@ -40,7 +39,7 @@ function NewPost({isLoggedIn}) {
           <span class="circle3"></span>
           <span class="circle4"></span>
           <span class="circle5"></span>
-          <span class="text" >Submit</span>
+          <span class="text" >Post</span>
       </button>
     </div>
   )
