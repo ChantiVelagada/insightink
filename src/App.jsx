@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home isLoggedIn={isLoggedIn}/>} />
           <Route path="/newpost" element={<NewPost isLoggedIn={isLoggedIn} />}/>
-          <Route path="/posts/:title" element={<Post isLoggedIn={isLoggedIn} />} />
+          <Route path="/posts/:article" element={<Post isLoggedIn={isLoggedIn} />} />
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>} />
         </Routes>
       </BrowserRouter>

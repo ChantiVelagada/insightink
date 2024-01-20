@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import Markdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
 import { getDocs , collection } from 'firebase/firestore'
-import { auth, db } from '../config/firebase-config'
+import { db } from '../config/firebase-config'
 
 function Post() {
 
   const [posts,setPosts] = useState([]);
-  const { title } = useParams()
+  const { article } = useParams()
 
   const postsRef = collection(db , 'posts');
 
@@ -21,14 +21,19 @@ function Post() {
   },[])
 
 
-  const post = posts.find((post => post.title === title))
+  const post = posts.find((post => post.title === article))
 
   console.log(post)
 
   return (
-    <Markdown>
-      {post?.content}
-    </Markdown>
+    <>
+      <div>
+        <h1 style={{fontSize:'50px'}}>{post?.title}</h1>
+        <Markdown>
+          {post?.content}
+        </Markdown>
+      </div>
+    </>
   )
 }
 

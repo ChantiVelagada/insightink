@@ -3,6 +3,7 @@ import './NewPost.css';
 import { addDoc , collection } from 'firebase/firestore'
 import { auth, db } from '../config/firebase-config'
 import { useNavigate } from 'react-router-dom';
+import MEditor from "@uiw/react-md-editor";
 
 
 function NewPost({isLoggedIn}) {
