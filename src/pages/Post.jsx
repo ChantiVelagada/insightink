@@ -28,7 +28,7 @@ function Post() {
   return (
     <>
       <div>
-        <h1 style={{fontSize:'50px'}}>{post?.title}</h1>
+        <h1 style={{fontSize:'36px'}}>{post?.title}</h1>
         <Markdown>
           {post?.content}
         </Markdown>
