@@ -27,10 +27,15 @@
     color: rgb(79, 127, 193);
 }
 
+.post-container .read-more:hover {
+    color: blue;
+}
+
 .post-info {
     display: flex;
     justify-content:space-between;
     align-items: center;
+    margin-top: 5px;
 }
 
 .post-info .author-info {

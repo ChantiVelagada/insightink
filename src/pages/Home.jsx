@@ -7,11 +7,14 @@ import { Link } from 'react-router-dom';
 
 function Home({isLoggedIn}) {
   const [posts,setPosts] = useState([]);
+  const [searchText, setSearchText] = useState('')
   const [isLoading, setIsLoading] = useState(true)
 
   const postsRef = collection(db , 'posts');
 
+
   useEffect(() => {
+
     const getPosts = async () => {
       const data = await getDocs(postsRef);
       setPosts(data.docs.map((doc) => ({...doc.data(), id: doc.id})))

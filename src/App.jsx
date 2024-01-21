@@ -11,7 +11,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn'))
 
   return (
-    <SkeletonTheme baseColor="lightgray" highlightColor="gray">
+    <SkeletonTheme baseColor="lightgray" highlightColor="#dce0de">
       <BrowserRouter >
         <nav className='navbar'>
           <Link to='/'><div className="logo">InsightInk</div></Link>
