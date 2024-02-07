@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './NewPost.css';
+import styles from './NewPost.module.css';
 import { addDoc , collection } from 'firebase/firestore'
 import { auth, db } from '../config/firebase-config'
 import { useNavigate } from 'react-router-dom';
-import MEditor from "@uiw/react-md-editor";
+
 
 
 function NewPost({isLoggedIn}) {
@@ -14,7 +14,7 @@ function NewPost({isLoggedIn}) {
   const postsRef = collection(db , 'posts');
 
   const createPost = async () => {
-    await addDoc(postsRef, {title,content, author : {id : auth.currentUser.uid, name: auth.currentUser.displayName,
+    await addDoc(postsRef, {title,content, date: new Date().toDateString(), author : {id : auth.currentUser.uid, name: auth.currentUser.displayName,
     imgUrl: auth.currentUser.photoURL}});
     navigate('/')
   }
@@ -26,7 +26,7 @@ function NewPost({isLoggedIn}) {
   }, [])
 
   return (
-    <div className='post-form'>
+    <div className={styles.postForm}>
 
       <label>Title </label>
       <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title...' />

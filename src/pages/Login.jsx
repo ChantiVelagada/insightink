@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import styles from './Login.module.css';
 import { auth, provider} from '../config/firebase-config';
 import { signInWithPopup, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
@@ -27,20 +27,22 @@ function Login({isLoggedIn,setIsLoggedIn}) {
 
   return (
     <>
-      {!isLoggedIn ? (<div className='login-logout'>
+      <button onClick={() => navigate('../')} className={styles.backArrow}>back</button>
+      {!isLoggedIn ? ( 
+        <div className={styles.loginLogout}>
         <button
           onClick={signInWithInGoogle} 
           type="button" 
-          className="login-with-google-btn" 
+          className={styles.loginWithGoogleBtn} 
         >
           Sign in with Google
         </button>
         </div>):(
-        <div className='profile-page'>
-          <img src={auth.currentUser.photoURL} />
+        <div className={styles.profilePage}>
+          <img className={styles.profileImage} src={auth.currentUser.photoURL} />
           <h3>{auth.currentUser?.displayName}</h3>
           <p>{auth.currentUser.email}</p>
-          <button onClick={signOutFromGoogle} className='red'>
+          <button onClick={signOutFromGoogle} className={styles.red}>
               <span class="circle1"></span>
               <span class="circle2"></span>
               <span class="circle3"></span>

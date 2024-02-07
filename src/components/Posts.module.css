@@ -1,0 +1,52 @@
+.postContainer {
+    max-width: 800px;
+    margin:auto;
+    margin-bottom: 20px;
+}
+
+.postContainer h2 {
+    font-size: 24px;
+    color: #1f2937;
+    padding-bottom: 5px;
+}
+
+.postContainer h2:hover {
+    text-decoration: underline;
+}
+
+.postContainer p {
+    font-size: 16px;
+    text-align: justify;
+    font-weight: 350;
+}
+
+.postContainer .readMore {
+    font-size: 16px;
+    color: rgb(79, 127, 193);
+}
+
+.postContainer .readMore:hover {
+    color: blue;
+}
+
+.postInfo {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.postInfo .authorInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.authorInfo img {
+    border-radius: 50%;
+    width: 30px;
+}
+
+.authorInfo .userName {
+    width: 200px;
+}

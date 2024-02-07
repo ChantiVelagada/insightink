@@ -1,0 +1,13 @@
+.searchInput {
+    margin: auto;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+}
+
+
+.skeletonBtn {
+    width: 100px;
+}

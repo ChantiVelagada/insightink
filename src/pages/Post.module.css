@@ -1,0 +1,60 @@
+.articleInfo {
+    padding-bottom: 50px;
+}
+
+.articleInfo .heading {
+    font-size: 28px;
+    padding-bottom: 10px;
+    line-height: 1.2;
+}
+
+.articleInfo .date {
+    color: darkgray;
+    font-size: 14px;
+}
+
+.articleInfo img {
+    width: 100%;
+    padding-bottom:15px;
+}
+
+.articleInfo h3, .articleInfo h4 {
+    padding-bottom: 15px;
+}
+
+.articleInfo p {
+    padding-bottom: 15px;
+    text-align: justify;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.backArrow {
+    margin-bottom: 10px;
+    font-size: small;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.postInfo {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.postInfo .authorInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.authorInfo img {
+    border-radius: 50%;
+    width: 30px;
+}
+
+.authorInfo .userName {
+    width: 200px;
+}

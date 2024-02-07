@@ -1,64 +1,57 @@
-import React, { useEffect, useState } from 'react';
-import './Home.css';
+import styles from './Home.module.css';
 import {getDocs, collection, deleteDoc, doc} from 'firebase/firestore';
 import {auth, db} from '../config/firebase-config';
 import CardSkeleton from './CardSkeleton';
-import { Link } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import Posts from '../components/posts';
+import { useState } from 'react';
 
 function Home({isLoggedIn}) {
-  const [posts,setPosts] = useState([]);
-  const [searchText, setSearchText] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
+
+  const [searchText, setSearchText] = useState()
 
   const postsRef = collection(db , 'posts');
 
+  const { data : posts, isLoading, isError, error} = useQuery({
+    queryKey : ['posts'],
+    queryFn : getPosts,
+  })
 
-  useEffect(() => {
+  async function getPosts()  {
+    const data = await getDocs(postsRef);
+    console.log(data)
+    
+    const posts = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
 
-    const getPosts = async () => {
-      const data = await getDocs(postsRef);
-      setPosts(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-      setIsLoading(false)
-    }
+    return posts
+  }
 
-    getPosts()
-  },[posts])
+  let content;
 
-  const deletePost = async (id) => {
-    const postDoc = doc(db, 'posts', id)
-    await deleteDoc(postDoc)
+  if(isLoading) {
+    content = <CardSkeleton cards={5} />
+  }
+
+  if(isError) {
+    content = <div>Error fetching data</div>
+  }
+
+  if(posts) {
+    content = (
+      posts?.map((post) => (
+        <Posts key={post.title} author={posts.author} id={post.id} isLoggedIn={isLoggedIn} title={post.title} content={post.content}/>
+      ))
+    )
+  }
+
+  function handleSearch() {
+
   }
 
   return (
     <>
-      <input className='search-input' type='text' placeholder='Search posts...' />
-      {isLoading && <CardSkeleton cards={3} />}
-      {posts.map((post) =>{
-        return (
-          <div className='post-container'>
-            <Link to={`/posts/${post.title}`}><h2>{ post.title }</h2></Link>
-            <p>{post.content.substring(0,200)}.....</p>
-            <Link to={`/posts/${post.title}`}><span className='read-more'>Read more</span></Link>
-            <div className='post-info'>
-              <div className='author-info'>
-                <img className='user-profile' src={post.author?.imgUrl} />
-                <p>{post.author?.name}</p>
-              </div>
-              
-              {isLoggedIn && post.author.id === auth.currentUser?.uid && (
-                <button onClick={() => deletePost(post.id)}  className='red'>
-                  <span className="circle1"></span>
-                  <span className="circle2"></span>
-                  <span className="circle3"></span>
-                  <span className="circle4"></span>
-                  <span className="circle5"></span>
-                  <span className="text">Delete</span>
-                </button>
-              )}
-            </div>
-          </div>
-        )
-      })}
+      <input onChange={handleSearch} className={styles.searchInput} type='text' placeholder='Search posts...'/>
+      { content }
     </>
   )
 }
