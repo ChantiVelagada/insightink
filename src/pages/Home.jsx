@@ -12,19 +12,19 @@ function Home({isLoggedIn}) {
 
   const postsRef = collection(db , 'posts');
 
-  const { data : posts, isLoading, isError, error} = useQuery({
-    queryKey : ['posts'],
-    queryFn : getPosts,
-  })
+  
 
   async function getPosts()  {
     const data = await getDocs(postsRef);
-    console.log(data)
-    
     const posts = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
 
     return posts
   }
+  
+  const { data : posts, isLoading, isError, error} = useQuery({
+    queryKey : ['posts'],
+    queryFn : getPosts,
+  })
 
   let content;
 
