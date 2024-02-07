@@ -3,16 +3,12 @@ import {getDocs, collection, deleteDoc, doc} from 'firebase/firestore';
 import {auth, db} from '../config/firebase-config';
 import CardSkeleton from './CardSkeleton';
 import { useQuery } from 'react-query';
-import Posts from '../components/posts';
+import Posts from '../components/Posts';
 import { useState } from 'react';
 
 function Home({isLoggedIn}) {
 
-  const [searchText, setSearchText] = useState()
-
   const postsRef = collection(db , 'posts');
-
-  
 
   async function getPosts()  {
     const data = await getDocs(postsRef);
