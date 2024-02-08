@@ -1,13 +1,61 @@
-.searchInput {
-    margin: auto;
-    display: block;
+.flexContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
     width: 100%;
-    font-size: 16px;
-    padding: 5px 10px;
-    margin-bottom: 30px;
 }
 
+.selectBox {
+    border: none;
+    background: #2873ff;
+    min-width: 100px;
+    width: 20%;
+    color: white;
+    padding:0 5px;
+    font-size: 16px;
+    height: 30px;
+}
 
-.skeletonBtn {
-    width: 100px;
+.selectBox option {
+    background-color: #ccc;
+    color: black;
+}
+
+.selectBox option:hover {
+    background-color: #949090;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.selectBox:focus, .input:focus {
+    outline: none;
+}
+
+.noPosts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.noPosts a {
+    border: 1px solid gray;
+    padding:5px 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: black;
+    transition:all 0.3s ease-in-out;
+}
+
+.noPosts a:hover {
+    color: white;
+    background-color: black;
 }

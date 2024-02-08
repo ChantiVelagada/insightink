@@ -37,7 +37,7 @@
         0 0 0 3px #c8dafc;
     }
   }
-  
+
 .profilePage {
     width: 100%;
     margin: auto;
@@ -48,16 +48,9 @@
     border-radius: 50%;
     margin-bottom: 20px;
     width: 150px;
+    border:5px solid rgb(131, 163, 126);
 }
 
 .profilePage h3, .profilePage p {
     margin-bottom: 10px;
-}
-
-.backArrow {
-  margin-bottom: 10px;
-  font-size: small;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
 }

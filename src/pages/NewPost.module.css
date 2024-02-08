@@ -3,73 +3,51 @@
     margin: auto;
 }
 
-.postForm h1 {
-    font-size: 24px;
-    padding-bottom: 20px;
-}
-
 .postForm label {
-    display: block;
-    font-size: larger;
-    font-weight: bolder;
+    display:block;
+    width: max-content;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: rgb(154, 174, 174);
 }
 
-.postForm input,textarea {
-    margin:10px 0;
+.postForm input,
+.postForm textarea {
     width: 100%;
     font-size: 14px;
+    border: none;
     padding: 8px;
+    background-color: rgb(227, 239, 239);
+}
+
+.postForm input:focus,
+.postForm textarea:focus {
+    outline: none;
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
-    background-color: #171717;
+    background-color: black;
     padding: 10px 20px;
     border: none;
-    position: relative;
     cursor: pointer;
     overflow: hidden;
 }
-  
-button span:not(:nth-child(6)) {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 30px;
-    width: 30px;
-    background-color: #0c66ed;
-    border-radius: 50%;
-    transition: .6s ease;
+
+.postForm .formBtns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
 }
-  
-button span:nth-child(6) {
-    position: relative;
+
+.formBtns .cancel {
+    background-color: #2873ff;
 }
-  
-button span:nth-child(1) {
-    transform: translate(-3.3em, -4em);
+
+.formBtns .post {
+    background-color: red;
 }
-  
-button span:nth-child(2) {
-    transform: translate(-6em, 1.3em);
-}
-  
-button span:nth-child(3) {
-    transform: translate(-.2em, 1.8em);
-}
-  
-button span:nth-child(4) {
-    transform: translate(3.5em, 1.4em);
-}
-  
-button span:nth-child(5) {
-    transform: translate(3.5em, -3.8em);
-}
-  
-button:hover span:not(:nth-child(6)) {
-    transform: translate(-50%, -50%) scale(4);
-    transition: 1.5s ease;
-}   

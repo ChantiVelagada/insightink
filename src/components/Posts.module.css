@@ -12,6 +12,7 @@
 
 .postContainer h2:hover {
     text-decoration: underline;
+    color: cadetblue;
 }
 
 .postContainer p {
@@ -22,7 +23,7 @@
 
 .postContainer .readMore {
     font-size: 16px;
-    color: rgb(79, 127, 193);
+    color: #2873ff;
 }
 
 .postContainer .readMore:hover {

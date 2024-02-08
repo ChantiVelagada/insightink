@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {getDocs, collection, deleteDoc, doc} from 'firebase/firestore';
 import {auth, db} from '../config/firebase-config';
 import styles from './Post.module.css';
-import { useMutation, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
+import PostInfoSkelton from '../components/UI/PostInfoSkelton';
+import remarkGfm from 'remark-gfm'
 
 function Post({isLoggedIn}) {
 
@@ -21,7 +22,7 @@ function Post({isLoggedIn}) {
     return post;
   }
 
-  const { data : post, isLoading, isError, error} = useQuery({
+  const { data : post, isLoading } = useQuery({
     queryKey : ['posts', {article}],
     queryFn : getPosts,
   })
@@ -32,32 +33,37 @@ function Post({isLoggedIn}) {
     navigate('/')
   }
 
-  return (
-    <>
-      <button onClick={() => navigate('../')} className={styles.backArrow}> back</button>
+  let content
+
+  if(isLoading) {
+    content = <PostInfoSkelton cards={1} />
+  }
+
+  if(post) {
+    content =(
       <div className={styles.articleInfo}>
         <h1 className={styles.heading}>{post?.title}</h1>
-        <p className={styles.date}>{post?.date}</p>
-        <Markdown>
+        <p className={styles.date}>{post?.date} <span style={{textDecoration:'underline'}}>{post?.author?.name}</span></p>
+        <Markdown remarkPlugins={[remarkGfm]}>
           {post?.content}
         </Markdown>
-        <div className={styles.postInfo}>
-        <div className={styles.authorInfo}>
-          <img className={styles.userProfile} src={post?.author?.imgUrl} />
-          <p>{post?.author?.name}</p>
-        </div>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <div className={styles.postNavigation}>
+        <svg  onClick={() => navigate('../')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style={{fill:"#232326"}} d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z" data-name="Left"/></svg>
+
         {isLoggedIn && post?.author.id === auth?.currentUser?.uid && (
-          <button onClick={() => deletePost(post.id)}  className='red'>
-            <span className="circle1"></span>
-            <span className="circle2"></span>
-            <span className="circle3"></span>
-            <span className="circle4"></span>
-            <span className="circle5"></span>
-            <span className="text">Delete</span>
-          </button>
+          <div className={styles.dataButtons}>
+            <Link>Edit</Link>
+            <Link onClick={() => deletePost(post?.id)}>Delete</Link>
+          </div>
         )}
       </div>
-      </div>
+      {content}
     </>
   )
 }

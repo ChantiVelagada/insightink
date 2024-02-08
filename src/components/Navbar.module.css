@@ -9,7 +9,7 @@
 
 .logo {
     font-size: 24px;
-    color: darkcyan;
+    color: cadetblue;
 }
 
 .logo:hover {
@@ -29,9 +29,17 @@
     color: black;
     font-weight: bold;
     font-size: 16px;
-    transition: color 0.3s;
+    transition:all 0.3s;
 }
 
 .nav_list a:hover {
     color: #ffcc00;
+}
+
+.navbar svg {
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar svg:hover {
+    transform: rotate(45deg);
 }

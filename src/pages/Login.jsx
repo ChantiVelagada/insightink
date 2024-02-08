@@ -27,7 +27,7 @@ function Login({isLoggedIn,setIsLoggedIn}) {
 
   return (
     <>
-      <button onClick={() => navigate('../')} className={styles.backArrow}>back</button>
+      <svg  onClick={() => navigate('../')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style={{fill:"#232326"}} d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z" data-name="Left"/></svg>
       {!isLoggedIn ? ( 
         <div className={styles.loginLogout}>
         <button
@@ -39,16 +39,11 @@ function Login({isLoggedIn,setIsLoggedIn}) {
         </button>
         </div>):(
         <div className={styles.profilePage}>
-          <img className={styles.profileImage} src={auth.currentUser.photoURL} />
+          <img className={styles.profileImage} src={auth.currentUser?.photoURL} />
           <h3>{auth.currentUser?.displayName}</h3>
-          <p>{auth.currentUser.email}</p>
+          <p>{auth.currentUser?.email}</p>
           <button onClick={signOutFromGoogle} className={styles.red}>
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text" >Logout</span>
+              Logout
           </button>
         </div>
       )}
