@@ -4,7 +4,7 @@ import { auth, db } from '../config/firebase-config';
 import CardSkeleton from '../components/UI/PostsSkeleton';
 import { useQuery } from 'react-query';
 import Posts from '../components/Posts';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Home({ isLoggedIn }) {
@@ -88,4 +88,3 @@ function Home({ isLoggedIn }) {
 }
 
 export default Home;
-
