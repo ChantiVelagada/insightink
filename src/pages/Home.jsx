@@ -77,7 +77,7 @@ function Home({ isLoggedIn }) {
       <div className={styles.flexContainer}>
         <select onChange={(event) => setSelectedPosts(event.target.value)} value={selectedPosts} className={styles.selectBox}>
           <option value="All">All Posts</option>
-          <option value="Your">Your Posts</option>
+          { isLoggedIn && <option value="Your">Your Posts</option>}
         </select>
 
         <input onChange={(event) => setSearchText(event.target.value)} value={searchText} className={styles.input} type='text' placeholder='Search posts...' />
