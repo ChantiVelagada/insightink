@@ -27,16 +27,6 @@
     outline: none;
 }
 
-button {
-    font-weight: bold;
-    color: white;
-    background-color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-}
-
 .postForm .formBtns {
     display: flex;
     justify-content: flex-end;
@@ -44,10 +34,27 @@ button {
     margin-top: 5px;
 }
 
+.formBtns button {
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
 .formBtns .cancel {
     background-color: #2873ff;
 }
 
+.formBtns .cancel:hover {
+    background-color: #0d5df1;
+}
+
 .formBtns .post {
     background-color: red;
+}
+
+.formBtns .post:hover {
+    background-color: rgb(191, 7, 7);
 }

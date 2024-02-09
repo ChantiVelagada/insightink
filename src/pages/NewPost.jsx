@@ -43,7 +43,7 @@ function NewPost({isLoggedIn}) {
   return (
     <div className={styles.postForm}>
 
-      <svg  onClick={() => navigate('../')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style={{fill:"#232326"}} d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z" data-name="Left"/></svg>
+      <svg className='svg'  onClick={() => navigate('../')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style={{fill:"#232326"}} d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z" data-name="Left"/></svg>
 
       <label>Title </label>
       <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Give a Title.' required autoFocus/>
@@ -56,7 +56,7 @@ function NewPost({isLoggedIn}) {
       <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder='Content goes here... supports "Markdown".' rows={20} required/>
 
       <div className={styles.formBtns}>
-        <button onClick={() => navigate('../')} className={styles.cancel}>Cancel</button>
+        <button  onClick={() => navigate('../')} className={styles.cancel}>Cancel</button>
         <button className={styles.post} onClick={createPost}>Post</button>
       </div>
     </div>
