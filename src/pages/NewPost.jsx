@@ -4,12 +4,12 @@ import { addDoc, collection } from 'firebase/firestore';
 import { auth, db } from '../config/firebase-config';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
+import { toast } from 'sonner';
 
 function NewPost({ isLoggedIn }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [description, setDescription] = useState('');
-  const [formError, setFormError] = useState('');
   const navigate = useNavigate();
 
   const postsRef = collection(db, 'posts');
@@ -27,7 +27,7 @@ function NewPost({ isLoggedIn }) {
 
   const validateForm = () => {
     if (!title.trim() || !content.trim() || !description.trim()) {
-      setFormError('Please fill out all fields.');
+      toast.warning('Please Enter all fields')
       return false;
     }
     return true;
@@ -72,8 +72,6 @@ function NewPost({ isLoggedIn }) {
 
       <label>Content </label>
       <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder='Content goes here... supports "Markdown".' rows={20} required />
-
-      {formError && <p className={styles.error}>{formError}</p>}
 
       <div className={styles.formBtns}>
         <button onClick={() => navigate('../')} className={styles.cancel}>

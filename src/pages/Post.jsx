@@ -7,7 +7,7 @@ import styles from './Post.module.css';
 import { useQuery } from 'react-query';
 import PostInfoSkelton from '../components/UI/PostInfoSkelton';
 import remarkGfm from 'remark-gfm';
-import Modal from '../components/UI/Modal'; // Import the DeleteModal component
+import Modal from '../components/UI/Modal';
 
 function Post({ isLoggedIn }) {
   const { article } = useParams();
@@ -69,7 +69,7 @@ function Post({ isLoggedIn }) {
           <path style={{ fill: '#232326' }} d='M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z' data-name='Left' />
         </svg>
 
-        {isLoggedIn && (
+        {isLoggedIn && post?.author?.id === auth.currentUser.uid && (
           <div className={styles.dataButtons}>
             <Link to='#'>Edit</Link>
             <Link to='#' onClick={handleDeleteClick}>Delete</Link>

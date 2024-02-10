@@ -3,6 +3,7 @@ import styles from './Login.module.css';
 import { auth, provider} from '../config/firebase-config';
 import { signInWithPopup, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 function Login({isLoggedIn,setIsLoggedIn}) {
 
@@ -13,8 +14,10 @@ function Login({isLoggedIn,setIsLoggedIn}) {
     .then((result) => {
       localStorage.setItem('isLoggedIn', true);
       setIsLoggedIn(true)
+      toast.info(`Welcome, ${auth.currentUser?.displayName}`)
       navigate('/')
     })
+    
   }
 
   const signOutFromGoogle = () => {
@@ -22,7 +25,9 @@ function Login({isLoggedIn,setIsLoggedIn}) {
       localStorage.clear();
       setIsLoggedIn(false);
       navigate('/login')
+      toast('Logged Out')
     })
+    
   }
 
   return (
