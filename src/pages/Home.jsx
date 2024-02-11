@@ -41,7 +41,7 @@ function Home({ isLoggedIn }) {
   }
 
   if (posts) {
-    let filteredPosts = [...posts];
+    let filteredPosts = [...posts]
 
     if (selectedPosts === 'Your') {
       filteredPosts = posts.filter((post) => post.author.id === auth.currentUser.uid)
@@ -60,7 +60,7 @@ function Home({ isLoggedIn }) {
       content = (
         <div className={styles.noPosts}>
           <p>No matches found for "{searchText}"</p>
-          <Link to={'/newpost'}>Create New Post</Link>
+          {isLoggedIn && <Link to={'/newpost'}>Create New Post</Link>}
         </div>
       )
     } else {
@@ -68,6 +68,7 @@ function Home({ isLoggedIn }) {
         filteredPosts.map((post) => (
           <Posts key={post.id} title={post.title} description={post.description} />
         ))
+        
       )
     }
   }
